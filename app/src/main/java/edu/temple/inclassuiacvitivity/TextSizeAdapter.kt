@@ -31,17 +31,17 @@ class TextSizeAdapter(_context: Context, _sizes: Array<Int>) : BaseAdapter() {
             textView = convertView as TextView
         } else {
             textView = TextView(context)
-            textView.textSize = 20f
+            textView.textSize = 26f
             textView.setPadding(5,10,0,10)
         }
         textView.text = sizes[position].toString()
-        textView.textSize = sizes[position].toFloat()
         return textView
     }
 
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup?): View {
         return super.getDropDownView(position, convertView, parent).apply {
-            
+            this as TextView
+            this.textSize = sizes[position].toFloat()
         }
     }
 
